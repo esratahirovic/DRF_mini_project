@@ -1,0 +1,159 @@
+{
+  "info": {
+    "name": "Mini Project DRF",
+    "_postman_id": "2b49e3c8-8f7c-4eac-a076-6e035d01a891",
+    "description": "Udemy + Uber Mini Demo DRF API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"user1\",\n    \"password\": \"123456\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/auth/login/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "auth", "login", ""]
+        }
+      }
+    },
+
+
+    {
+      "name": "Courses - List Courses",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/courses/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "courses", ""]
+        }
+      }
+    },
+
+
+    {
+      "name": "Courses - Purchase Course",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"course_id\": 1\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/courses/purchase/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "courses", "purchase", ""]
+        }
+      }
+    },
+
+
+    {
+      "name": "Courses - My Purchases",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/courses/purchases/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "courses", "purchases", ""]
+        }
+      }
+    },
+
+
+    {
+      "name": "Live Lessons - Create Lesson Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/courses/live/request/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "courses", "live", "request", ""]
+        }
+      }
+    },
+
+
+    {
+      "name": "Live Lessons - My Lesson Requests",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/courses/live/my/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "courses", "live", "my", ""]
+        }
+      }
+    },
+
+
+    {
+      "name": "Live Lessons - Instructor Assigned Lessons",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/courses/live/instructor/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "courses", "live", "instructor", ""]
+        }
+      }
+    }
+
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
+
