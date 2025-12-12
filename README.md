@@ -1,44 +1,45 @@
-TEKNİK MİMARİ DOKÜMANI — Mini Udemy + Mini Uber + JWT Auth Sistemi 
+# TEKNİK MİMARİ DOKÜMANI — Mini Udemy + Mini Uber + JWT Auth Sistemi 
 
-Geliştirme Ortamı 
+## Geliştirme Ortamı 
 
 Proje Ubuntu Linux üzerinde geliştirilmiştir. Belirtilen kurulum komutları Linux işletim sistemi uyumludur. 
 
-Teknolojiler: 
+## Teknolojiler: 
 
-Python 3.12 
+- Python 3.12 
 
-Django + Django REST Framework 
+- Django + Django REST Framework 
 
-SimpleJWT (Bearer Token Authentication) 
+- SimpleJWT (Bearer Token Authentication) 
 
-SQLite (demo amaçlı) 
+- SQLite (demo amaçlı) 
 
-Postman (API testleri) 
+- Postman (API testleri) 
 
-venv (sanal ortam) 
+- venv (sanal ortam) 
 
-Kurulum Komutları 
+## Kurulum Komutları 
 
-Sanal ortam: 
-
+### Sanal ortam: 
+```bash
 python3 -m venv venv 
-source venv/bin/activate 
+source venv/bin/activate
+```
 
-Migrasyonlar: 
-
+### Migrasyonlar: 
+```bash
 python manage.py makemigrations 
 python manage.py migrate 
-
-Mock veri üretimi: 
-
+```
+### Mock veri üretimi: 
+```bash
 python mock/generate_mockdata.py 
-
-Sunucuyu başlatma: 
-
+```
+### Sunucuyu başlatma: 
+```bash
 python manage.py runserver 
-
-Kullanılan Yapılar ve Nedenleri 
+```
+## Kullanılan Yapılar ve Nedenleri 
 
 DRF → Hızlı ve modüler REST API geliştirme. 
 
@@ -48,7 +49,7 @@ SQLite → Demo için hızlı ve sıfır kurulumlu veritabanı.
 
 Faker → Eğitmen, kullanıcı ve kurslar için sahte veri oluşturma. 
 
-Rol Modeli 
+## Rol Modeli 
 
 Kullanıcı modeli genişletilerek 3 rol tanımlanmıştır: 
 
@@ -60,7 +61,7 @@ admin: sistem yönetimi
 
 JWT ile tüm isteklerde kimlik doğrulama yapılır. 
 
-Mini Udemy Sistemi (Kurs Satın Alma Akışı) 
+### Mini Udemy Sistemi (Kurs Satın Alma Akışı) 
 
 Modeller: 
 
@@ -70,17 +71,17 @@ Purchase: kullanıcı, kurs, ödeme ID, durum, timestamp
 
 Akış: 
 
-Kullanıcı JWT ile giriş yapar. 
+1. Kullanıcı JWT ile giriş yapar. 
 
-/courses/purchase/ üzerinden course_id gönderilir. 
+2. /courses/purchase/ üzerinden course_id gönderilir. 
 
-Mock ödeme servisi çalışır. 
+3. Mock ödeme servisi çalışır. 
 
-Ödeme başarılı → Purchase kaydı oluşur. 
+4. Ödeme başarılı → Purchase kaydı oluşur. 
 
-Kullanıcı satın aldığı kursları /courses/purchases/ ile görüntüler. 
+5. Kullanıcı satın aldığı kursları /courses/purchases/ ile görüntüler. 
 
-Mini Uber Mantığı (Canlı Ders Eşleştirme) 
+### Mini Uber Mantığı (Canlı Ders Eşleştirme) 
 
 Model: LiveLessonRequest (öğrenci, eğitmen, durum) 
 
@@ -89,15 +90,15 @@ Basit algoritma ile ilk uygun eğitmen seçilir.
 
 Akış: 
 
-Öğrenci /courses/live/request/ çağırır. 
+1. Öğrenci /courses/live/request/ çağırır. 
 
-Sistem eğitmen atar. 
+2. Sistem eğitmen atar. 
 
-Bildirim simülasyonu yapılır. 
+3. Bildirim simülasyonu yapılır. 
 
-Eğitmen /courses/live/instructor/ ile atamaları görür. 
+4. Eğitmen /courses/live/instructor/ ile atamaları görür. 
 
-Güvenlik ve Kimlik Doğrulama 
+## Güvenlik ve Kimlik Doğrulama 
 
 Tüm korumalı endpointler JWT Token gerektirir. 
 
